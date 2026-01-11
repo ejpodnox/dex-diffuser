@@ -1,0 +1,32 @@
+# Core
+torch==2.4.0+cu118 --index-url https://download.pytorch.org/whl/cu118
+torchvision==0.19.0+cu118 --index-url https://download.pytorch.org/whl/cu118
+torchaudio==2.4.0+cu118 --index-url https://download.pytorch.org/whl/cu118
+
+# Math & Tensors
+numpy<2.0.0
+scipy
+einops
+transforms3d
+pytorch-kinematics
+transformations
+
+# Visualization
+plotly
+matplotlib
+trimesh
+pyrender
+tensorboard
+
+# Config & Utilities
+omegaconf
+hydra-core
+loguru
+tqdm
+urdf-parser-py
+ipdb
+charset-normalizer==3.3.2
+
+# External (Install from source if pip fails)
+# git+https://github.com/facebookresearch/pytorch3d.git
+# git+https://github.com/otaheri/bps_torch

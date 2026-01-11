@@ -7,7 +7,7 @@ outputs*/
 ckpts/
 data/
 dexdiffuser_data/
-isaacgym/
+# isaacgym/
 *.zip
 isaacguide.txt
 .DS_Store
