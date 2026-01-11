@@ -97,6 +97,13 @@ class GraspGenURVisualizer():
                     fig.write_image(save_path)
                 elif vis_type == 'html':
                     fig.write_html(save_path)
+                elif vis_type == 'glb':
+                    hand_meshes = self.hand_model.get_meshes_from_q(q=outputs[i:i + 1, :])
+                    scene = trimesh.Scene()
+                    scene.add_geometry(obj_mesh)
+                    for mesh in hand_meshes:
+                        scene.add_geometry(mesh)
+                    scene.export(save_path)
     
     @torch.no_grad()
     def sample_grasps(
@@ -120,6 +127,8 @@ class GraspGenURVisualizer():
         """
         model.eval()        
         os.makedirs(os.path.join(save_dir, 'html'), exist_ok=True)
+        if vis_type is not None:
+             os.makedirs(os.path.join(save_dir, vis_type), exist_ok=True)
 
         if datasetname != 'dexgraspnet':
             scene_pcds = pickle.load(open(os.path.join(data_root, f'pc_data_{datasetname}.pickle'), 'rb'))

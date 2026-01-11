@@ -28,11 +28,13 @@ conda activate dexdiff
 2. Install CUDA 11.7
 
 3. Install [pytorch3d](https://github.com/facebookresearch/pytorch3d/blob/main/INSTALL.md)
+   > **Note:** Ensure your `nvcc` version matches your PyTorch CUDA version. If you face `ImportError: libtorch_cuda_cu.so`, see [TROUBLESHOOTING.md](TROUBLESHOOTING.md).
 4. Install [bps_torch](https://github.com/otaheri/bps_torch)
 5. Install dependencies
 ```
-pip install omegaconf einops urdf-parser-py hydra-core loguru plotly tqdm transformations trimesh matplotlib pyrender tensorboard tqdm transforms3d
+pip install omegaconf einops urdf-parser-py hydra-core loguru plotly tqdm transformations trimesh matplotlib pyrender tensorboard tqdm transforms3d pytorch-kinematics
 ```
+   > **Note:** `pytorch-kinematics` is required. If running into issues, check [TROUBLESHOOTING.md](TROUBLESHOOTING.md).
 6. (optional) Install [IsaacGym](https://developer.nvidia.com/isaac-gym)
 
 ## Checkpoints & Data
@@ -61,7 +63,10 @@ bash scripts/train_evaluator.sh
 
 generate grasps (set guid_scale to use EGD)
 ```
-bash scripts/sample.sh
+bash scripts/sample.sh <model_type> [vis_type=glb]
+# Example: bash scripts/sample.sh bps vis_type=glb
+```
+**Note:** You can generate visualizations by passing `vis_type=glb`, `vis_type=html`, or `vis_type=png`. Resulting files will be in `outputs/bps/multidex/<type>`.
 ```
 
 refine the generated grasps
@@ -71,7 +76,9 @@ bash scripts/refine.sh
 
 (optional) test grasps in isaacgym
 ```
-python isaac_test_right.py --eval_dir path_to_grasps
+python isaac_test_right.py --eval_dir path_to_grasps --onscreen
+```
+**Note:** Add `--onscreen` to view the simulation in a window. For troubleshooting errors, see [TROUBLESHOOTING.md](TROUBLESHOOTING.md).
 ```
 
 

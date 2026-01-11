@@ -54,7 +54,7 @@ def main(cfg: DictConfig) -> None:
                          evaluator=evaluator, 
                          guid_scale=cfg.guid_scale, 
                          num_sample=cfg.num_sample,
-                         vis_type=None)
+                         vis_type=cfg.vis_type)
     logger.info('done!') # set logger file
 
 if __name__ == '__main__':

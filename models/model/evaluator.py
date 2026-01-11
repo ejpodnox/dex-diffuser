@@ -1,7 +1,7 @@
 from re import T
 import time
 
-from flask.cli import F
+
 import torch
 # from FFHNet.utils import utils
 from torch import nn

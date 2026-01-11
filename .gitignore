@@ -1,5 +1,13 @@
-*pycache*
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
 .vscode/
 outputs*/
 ckpts/
 data/
+dexdiffuser_data/
+isaacgym/
+*.zip
+isaacguide.txt
+.DS_Store

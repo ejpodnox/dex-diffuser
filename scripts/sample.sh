@@ -1,4 +1,4 @@
-MODEL=$1 #['bps', 'pn2']
+MODEL=${1:-bps} #['bps', 'pn2']
 
 python sample.py hydra/job_logging=none hydra/hydra_logging=none \
         diffuser=ddpm \
@@ -10,3 +10,4 @@ python sample.py hydra/job_logging=none hydra/hydra_logging=none \
         task.dataset.normalize_x_trans=false \
         exp_name=bps \
         dataset_name=multidex \
+        "${@:2}"

@@ -34,9 +34,12 @@ dataset:
   # urdf_root: ./data/urdf
   # object_root: ./data/object
   # data_root: ./MultiDex
+  # urdf_root: ./data/urdf
+  # object_root: ./data/object
+  # data_root: ./MultiDex
   urdf_root: ./data/urdf
-  object_root: /proj/berzelius-2023-338/users/x_haolu/dexdiffuser_data
-  data_root: /proj/berzelius-2023-338/users/x_haolu/dexdiffuser_data
+  object_root: data/object
+  data_root: dexdiffuser_data
 
   train_transforms: ['NumpyToTensor']
   test_transforms: ['NumpyToTensor']
